@@ -64,11 +64,11 @@ A domain-specific language embedded in Python for parallel computations on unstr
 ## PyOP2 Data Model
 
 ### Mesh topology
-* Sets – cells, vertices, etc
-* Maps – connectivity between entities in different sets
+* ``Sets`` – cells, vertices, etc
+* ``Maps`` – connectivity between entities in different sets
 
 ### Data
-* Dats – Defined on sets (hold pressure, temperature, etc)
+* ``Dats`` – Defined on sets (hold pressure, temperature, etc)
 
 ### Kernels
 * Executed in parallel on a set through a parallel loop
