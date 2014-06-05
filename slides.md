@@ -165,19 +165,28 @@ p = Function(V)
 ## Behind the scenes of the solve call
 
 * Unified interface: Firedrake always solves nonlinear problems in resdiual form `F(u;v) = 0` using Newton-like methods
-* PETSc SNES requires two callbacks to evaluate residual and Jacobian:
-  * evaluate residual: `assemble(F, tensor=F_tensor)`
-  * evaluate Jacobian: `assemble(J, tensor=J_tensor, bcs=bcs)`
-* If Jacobian not provided by the user, Firedrake uses automatic differentiation:
-  ```python
-  J = ufl.derivative(F, u)
-  ```
 * Transform linear problem with bilinear form `a`, linear form `L` into residual form:
   ```python
   J = a
   F = ufl.action(J, u) - L
   ```
   Jacobian known to be `a`; **always** solved in a single Newton (nonlinear) iteration
+* PETSc SNES requires two callbacks to evaluate residual and Jacobian:
+  * evaluate residual: assemble residual form
+    ```python
+    assemble(F, tensor=F_tensor)
+    ```
+  * evaluate Jacobian: assemble Jacobian form
+    ```python
+    assemble(J, tensor=J_tensor, bcs=bcs)
+    ```
+
+???
+
+* If Jacobian not provided by the user, Firedrake uses automatic differentiation:
+  ```python
+  J = ufl.derivative(F, u)
+  ```
 
 ---
 
