@@ -94,6 +94,27 @@ class: center, middle
 
 ---
 
+## Firedrake architecture
+
+.scale[![Firedrake architecture](images/firedrake_toolchain_dolfin.svg)]
+
+???
+
+  * Purely a system for reasoning about variational forms
+  * UFL to describe weak forms of PDEs
+  * FFC translates forms into kernels
+  * FFC not responsible for optimisation of code (role is only to produce an abstract kernel loop nest suitable for optimisation by COFFEE)
+  * PyOP2 as parallel execution layer for assembly kernels
+  * PETSc used for meshes (DMPlex), nonlinear solves (SNES), linear solves (KSP, PC)
+  * *No parallel code*: parallelism handled by PyOP2 + PETSc
+  * PyOP2
+    * responsible for storage, transfer and communication of data
+    * backend independent
+    * performance portable
+    * no code changes required when switching backend
+
+---
+
 .left30[
 ### Function
 Field defined on a set of degrees of freedom (DoFs), data stored as PyOP2 `Dat`
@@ -107,22 +128,6 @@ Defines abstract topology by sets of entities and maps between them (PyOP2 data 
 ## Firedrake concepts
 ![Firedrake types](images/firedrake_types.svg)
 ]
-
-???
-
-## Firedrake architecture
-  * Purely a system for reasoning about variational forms
-  * UFL to describe weak forms of PDEs
-  * FFC translates forms into kernels
-  * FFC not responsible for optimisation of code (role is only to produce an abstract kernel loop nest suitable for optimisation by COFFEE)
-  * PyOP2 as parallel execution layer for assembly kernels
-  * PETSc used for meshes (DMPlex), nonlinear solves (SNES), linear solves (KSP, PC)
-  * *No parallel code*: parallelism handled by PyOP2 + PETSc
-  * PyOP2
-    * responsible for storage, transfer and communication of data
-    * backend independent
-    * performance portable
-    * no code changes required when switching backend
 
 ---
 
