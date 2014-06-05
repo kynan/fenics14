@@ -119,7 +119,7 @@ class: center, middle
 ### Function
 Field defined on a set of degrees of freedom (DoFs), data stored as PyOP2 `Dat`
 ### FunctionSpace
-Characterized by a family and and degree of FE basis functions, defined DOFs for function and relationship to mesh entities
+Characterized by a family and degree of FE basis functions, defines DOFs for function and relationship to mesh entities
 ### Mesh
 Defines abstract topology by sets of entities and maps between them (PyOP2 data structures)
 ]
