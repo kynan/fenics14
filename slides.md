@@ -162,7 +162,6 @@ p = Function(V)
 
 ---
 
-.left60[
 ## Behind the scenes of the solve call
 
 * Unified interface: Firedrake always solves nonlinear problems in resdiual form `F(u;v) = 0` using Newton-like methods
@@ -179,27 +178,6 @@ p = Function(V)
   F = ufl.action(J, u) - L
   ```
   Jacobian known to be `a`; **always** solved in a single Newton (nonlinear) iteration
-]
-
---
-
-.right40[
-### Solve implementation
-```python
-def solve(problem, solution,
-          bcs=None, J=None,
-          solver_parameters=None)
-```
-
-1. If problem is linear, transform into residual form
-2. If no Jacobian provided, compute Jacobian by automatic differentiation
-3. Set up PETSc SNES solver (parameters user configurable)
-4. Assign residual and Jacobian forms for SNES callbacks
-5. Solve nonlinear problem. For each nonlinear iteration:
-  a) assemble Jacobian matrix
-  b) assemble residual vector
-  c) solve linear system using PETSc KSP
-]
 
 ---
 
@@ -314,6 +292,24 @@ Slides created with [remark](http://remarkjs.com)
 class: center, middle, inverse
 
 # Backup
+
+---
+
+## Solve implementation
+```python
+def solve(problem, solution,
+          bcs=None, J=None,
+          solver_parameters=None)
+```
+
+1. If problem is linear, transform into residual form
+2. If no Jacobian provided, compute Jacobian by automatic differentiation
+3. Set up PETSc SNES solver (parameters user configurable)
+4. Assign residual and Jacobian forms for SNES callbacks
+5. Solve nonlinear problem. For each nonlinear iteration:
+  a) assemble Jacobian matrix
+  b) assemble residual vector
+  c) solve linear system using PETSc KSP
 
 ---
 
