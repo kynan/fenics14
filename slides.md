@@ -94,7 +94,7 @@ class: center, middle
 
 ---
 
-## Firedrake architecture
+## Firedrake vs. DOLFIN tool chains
 
 .scale[![Firedrake architecture](images/firedrake_toolchain_dolfin.svg)]
 
