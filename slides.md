@@ -315,6 +315,44 @@ solve(A, u, b, solver_parameters=params)
 
 ---
 
+### Incompressible Navier-Stokes benchmark (Chorin's method)
+
+```python
+V = VectorFunctionSpace(mesh, "Lagrange", 2)
+Q = FunctionSpace(mesh, "Lagrange", 1)
+u, p = TrialFunction(V), TrialFunction(Q)
+v, q = TestFunction(V), TestFunction(Q)
+
+dt = 0.01
+nu = 0.01
+p_in = Constant(0.0)
+
+noslip = DirichletBC(V, Constant((0.0, 0.0)), (1, 3, 4, 6))
+inflow = DirichletBC(Q, p_in, 5)
+outflow = DirichletBC(Q, 0, 2)
+bcu = [noslip]
+bcp = [inflow, outflow]
+
+u0, u1, p1 = Function(V), Function(V), Function(Q)
+k = Constant(dt)
+f = Constant((0, 0))
+
+# Tentative velocity step
+F1 = (1/k)*inner(u - u0, v)*dx + inner(grad(u0)*u0, v)*dx + \
+    nu*inner(grad(u), grad(v))*dx - inner(f, v)*dx
+a1, L1 = lhs(F1), rhs(F1)
+
+# Pressure update
+a2 = inner(grad(p), grad(q))*dx
+L2 = -(1/k)*div(u1)*q*dx
+
+# Velocity update
+a3 = inner(u, v)*dx
+L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
+```
+
+---
+
 ### Navier-Stokes on a single core
 
 ![Navier-Stokes single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokes_loglog_np1.svg)
