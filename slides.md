@@ -14,8 +14,10 @@ Slides: http://kynan.github.io/fenics14
 
 .scale[![Firedrake](http://firedrakeproject.org/_static/banner.png)]
 
-> Firedrake is an automated system for the portable solution of partial
+> Firedrake is an automated system for the **portable** solution of partial
 > differential equations using the finite element method (FEM).
+>
+> .source[&mdash; firedrakeproject.org]
 
 --
 
