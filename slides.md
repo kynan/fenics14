@@ -285,6 +285,24 @@ class: center, middle
 
 ---
 
+### Navier-Stokes on a single core
+
+![Navier-Stokes single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokes_loglog_np1.svg)
+
+---
+
+### Navier-Stokes scaling up to 12 cores (500k element mesh)
+
+![Navier-Stokes scaling](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_loglog_scale0.2.svg)
+
+---
+
+### Navier-Stokes speedup up to 12 cores (500k element mesh)
+
+![Navier-Stokes speedup](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_plot_scale0.2_speedup.svg)
+
+---
+
 ## Summary and additional features
 
 ### Summary
