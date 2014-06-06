@@ -265,9 +265,28 @@ solve(A, p, b, bcs=bcs)
 
 ---
 
-class: center, middle
+## Benchmarks
 
-# Benchmarks
+### Hardware
+* Intel Xeon E5-2620 0 @ 2.00GHz (Sandy Bridge)
+* 16GB RAM
+
+### Compilers
+* Intel Compilers 14.0.1
+* Intel MPI 3.1.038
+
+### Software
+* DOLFIN 389e0269 (April 4 2014)
+* Firedrake 570d999 (May 13 2014)
+* PyOP2 e775c5e (May 9 2014)
+
+### Problem setup
+* DOLFIN: quadrature with optimisations
+* Firedrake: quadrature with COFFEE optimisations
+
+???
+
+* only quadrature supported in Firedrake
 
 ---
 
