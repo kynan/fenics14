@@ -19,11 +19,20 @@ Slides: http://kynan.github.io/fenics14
 
 --
 
-* Two-layer abstraction for FEM computation from high-level descriptions:
-  * Firedrake: a portable finite-element computation framework  
-    *Drive FE computations from a high-level problem specification*
-  * PyOP2: a high-level interface to unstructured mesh based methods  
-    *Efficiently execute kernels over an unstructured grid in parallel*
+Two-layer abstraction for FEM computation from high-level descriptions:
+* Firedrake: a portable finite-element computation framework  
+  *Drive FE computations from a high-level problem specification*
+* PyOP2: a high-level interface to unstructured mesh based methods  
+  *Efficiently execute kernels over an unstructured grid in parallel*
+
+---
+
+## The Firedrake/PyOP2 tool chain
+
+![Firedrake](images/firedrake_toolchain.svg)
+
+???
+
 * Decoupling of Firedrake (FEM) and PyOP2 (parallelisation) layers
 * (mostly) DOLFIN compatible API
 * UFL to describe finite-element discretisation
@@ -31,12 +40,6 @@ Slides: http://kynan.github.io/fenics14
 * Platform-specific runtime code generation and JIT compilation
 * Portability for unstructured mesh applications: FEM, non-FEM or combinations
 * Extensible framework beyond FEM computations (e.g. image processing)
-
----
-
-## The Firedrake/PyOP2 tool chain
-
-![Firedrake](images/firedrake_toolchain.svg)
 
 ---
 
