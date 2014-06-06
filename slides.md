@@ -84,11 +84,23 @@ A domain-specific language embedded in Python for parallel computations on unstr
 * Kernels compute a local matrix – PyOP2 handles global assembly
 ]
 
+???
+
+* Fix diagram
+* Set: abstract entity, only know how big it is
+* Map: lookup table
+* Dat: abstracted array, contains actual values on CPU or GPU
+* take home: PyOP2 objects are bare/simple objects, but give tools how to express FE objects
+
 ---
 
 ## PyOP2 Architecture
 
 .scale[![PyOP2 implementation](images/pyop2_architecture.svg)]
+
+???
+
+* No OpenCL and CUDA results this time (focussing on FEM features)
 
 ---
 
@@ -103,6 +115,19 @@ class: center, middle
 .scale[![Firedrake architecture](images/firedrake_toolchain_dolfin.svg)]
 
 ???
+
+* diagram:
+  * modified FFC
+  * FEniCS interface
+
+* Design decision:
+  * Python as main language
+* UFC vs. parallel loops
+  * in UFC every kernel type has a special interface
+  * have to extend UFC if you want to do anything that is not yet specified
+  * parallel loop interface is completely flexible
+* escape hatch for things not expressible in UFL: mention Firedrake parallel loop test example (slope limiters)
+* we control C kernels completely, can use ctypes
 
 * Purely a system for reasoning about variational forms
 * UFL to describe weak forms of PDEs
