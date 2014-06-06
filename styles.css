@@ -129,3 +129,8 @@ blockquote p {
   font-style: italic;
   display: inline;
 }
+blockquote .source {
+  display: block;
+  float: right;
+  color: #666;
+}
