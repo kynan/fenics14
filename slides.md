@@ -218,7 +218,7 @@ solve(A, p, b, bcs=bcs)
 * assembly returns unassembled matrix with assembly "thunk" (intent to assemble), called with BCs when solving
 * Assembly is cached
   * pre-assembly not required in most circumstances
-  * assembly cache has eviction strategy based on "cost" of assembly
+  * assembly cache has FIFO eviction strategy
 ]
 
 ???
