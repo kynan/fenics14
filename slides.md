@@ -267,6 +267,36 @@ class: center, middle
 
 ---
 
+## Poisson benchmark
+
+```python
+V = FunctionSpace(mesh, "Lagrange", degree)
+
+# Dirichlet BC for x = 0 and x = 1
+bc = DirichletBC(V, 0.0, [3, 4])
+
+# Test, trial and coefficient functions
+u = TrialFunction(V)
+v = TestFunction(V)
+f = Function(V).interpolate(Expression(
+        "10*exp(-(pow(x[0] - 0.5, 2) + pow(x[1] - 0.5, 2)) / 0.02)"))
+g = Function(V).interpolate(Expression("sin(5*x[0])"))
+
+# Bilinear and linear forms
+a = inner(grad(u), grad(v))*dx
+L = f*v*dx + g*v*ds
+
+# Pre-assemble and solve
+u = Function(V)
+A = assemble(a, bcs=bc)
+b = assemble(L)
+bc.apply(b)
+
+solve(A, u, b, solver_parameters=params)
+```
+
+---
+
 ### Poisson on a single core
 
 ![Poisson single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/Poisson_loglog_dim3_degree3_np1.svg)
