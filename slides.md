@@ -261,6 +261,30 @@ solve(A, p, b, bcs=bcs)
 
 ---
 
+class: center, middle
+
+# Benchmarks
+
+---
+
+### Poisson on a single core
+
+![Poisson single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/Poisson_loglog_dim3_degree3_np1.svg)
+
+---
+
+### Poisson scaling up to 12 cores (250k element mesh)
+
+![Poisson scaling](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_loglog_dim3_degree3_size35.svg)
+
+---
+
+### Poisson speedup up to 12 cores (250k element mesh)
+
+![Poisson speedup](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_plot_dim3_degree3_size35_speedup.svg)
+
+---
+
 ## Summary and additional features
 
 ### Summary
