@@ -190,26 +190,32 @@ p = Function(V)
 
 ---
 
-## Assembling linear and bilinear forms: the assemble call
+## Applying boundary conditions
 
-* Assembling matrices with boundary conditions
-  * BCs may change between point of assembly and solve
-  * assembly returns unassembled matrix with assembly "thunk" (intent to assemble), called with BCs when solving
-* Assembly is cached
-  * pre-assembly not required in most circumstances
-  * assembly cache has eviction strategy based on "cost" of assembly
-
---
-
-### Applying boundary conditions
-
-* Applied in a way that preserves symmetry of the operator. For each boundary node:
-  1. Set matrix row and column to 0
-  2. Set matrix diagonal to 1
-  3. Modify the right-hand side vector with boundary value
+* Applied in a way that preserves symmetry of the operator
+* Zeroing of matrix rows/columns during assembly, requires BCs 
 * Leverage PETSc to avoid costly zeroing of CSR columns
   * on assembly, set row/column indices of boundary values to negative values
   * instruct PETSc to drop contributions, leaving a 0 in the assembled matrix
+
+--
+
+## Preassembly
+
+.left30[
+```python
+A = assemble(a)
+b = assemble(L)
+solve(A, p, b, bcs=bcs)
+```
+]
+.right70[
+* BCs may change between point of assembly and solve
+* assembly returns unassembled matrix with assembly "thunk" (intent to assemble), called with BCs when solving
+* Assembly is cached
+  * pre-assembly not required in most circumstances
+  * assembly cache has eviction strategy based on "cost" of assembly
+]
 
 ???
 
