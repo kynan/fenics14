@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7086088"
-     inkscape:cx="381.00624"
-     inkscape:cy="235.44137"
+     inkscape:zoom="2.4163377"
+     inkscape:cx="519.65493"
+     inkscape:cy="338.0252"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer_fenics"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1043"
@@ -102,6 +102,19 @@
   </sodipodi:namedview>
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path4419"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Mend"
@@ -2065,7 +2078,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2149,15 +2162,15 @@
      style="display:inline"
      transform="translate(-175,10)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Mend);display:inline"
-       d="m 740,55.500001 0,72.200369"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:none;display:inline"
+       d="M 740,56.250596 740,128.5"
        id="path4294"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path4296"
-       d="m 740,170.5 0,63.35089"
-       style="fill:none;stroke:#000000;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Mend);display:inline" />
+       d="m 740,171.24891 0,63.25108"
+       style="fill:none;stroke:#000000;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:none;display:inline" />
     <rect
        ry="5"
        rx="5"
@@ -2238,7 +2251,7 @@
          id="tspan10367-1-6"
          x="701.36719"
          y="19.153954"
-         style="font-size:23.99028778px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold">DOLFIN</tspan><tspan
+         style="font-size:23.99028778px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold">FEniCS</tspan><tspan
          sodipodi:role="line"
          x="701.36719"
          y="49.141811"
@@ -2506,48 +2519,35 @@
        transform="scale(0.99989861,1.0001014)"
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
-       x="655.06641"
-       y="79.99189"
+       x="650.06592"
+       y="311.96835"
        id="text4210-1-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="655.06641"
-         y="79.99189"
+         x="650.06592"
+         y="311.96835"
          id="tspan4216-3-7"
-         style="font-weight:normal;-inkscape-font-specification:Ubuntu">Geometry,</tspan><tspan
+         style="font-weight:normal;-inkscape-font-specification:Ubuntu">Meshes,</tspan><tspan
          sodipodi:role="line"
-         x="655.06641"
-         y="99.99189"
+         x="650.06592"
+         y="331.96835"
+         style="font-weight:normal;-inkscape-font-specification:Ubuntu"
+         id="tspan5513">matrices,</tspan><tspan
+         sodipodi:role="line"
+         x="650.06592"
+         y="351.96835"
+         style="font-weight:normal;-inkscape-font-specification:Ubuntu"
+         id="tspan5515">vectors</tspan><tspan
+         sodipodi:role="line"
+         x="650.06592"
+         y="371.96835"
          id="tspan4253-9-4"
          style="font-weight:normal;-inkscape-font-specification:Ubuntu">(non)linear</tspan><tspan
          sodipodi:role="line"
-         x="655.06641"
-         y="119.99189"
+         x="650.06592"
+         y="391.96835"
          id="tspan6207-2"
          style="font-weight:normal;-inkscape-font-specification:Ubuntu">solves</tspan></text>
-    <text
-       transform="scale(0.99989861,1.0001014)"
-       xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
-       x="665.06744"
-       y="189.98074"
-       id="text4210-16"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="665.06744"
-         y="189.98074"
-         id="tspan4253-1"
-         style="font-weight:normal;-inkscape-font-specification:Ubuntu">Meshes,</tspan><tspan
-         sodipodi:role="line"
-         x="665.06744"
-         y="209.98074"
-         id="tspan6241-9"
-         style="font-weight:normal;-inkscape-font-specification:Ubuntu">matrices,</tspan><tspan
-         sodipodi:role="line"
-         x="665.06744"
-         y="229.98074"
-         id="tspan6243-0"
-         style="font-weight:normal;-inkscape-font-specification:Ubuntu">vectors</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
