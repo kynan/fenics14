@@ -10,6 +10,15 @@ class: center, middle, inverse
 
 ---
 
+.scale[![FEniCS](http://fenicsproject.org/_static/fenics_banner.png)]
+
+> The FEniCS Project is a collection of free software for automated, efficient
+> solution of differential equations.
+>
+> .source[&mdash; fenicsproject.org]
+
+---
+
 .scale[![Firedrake](http://firedrakeproject.org/_static/banner.png)]
 
 > Firedrake is an automated system for the **portable** solution of partial
