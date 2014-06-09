@@ -375,6 +375,17 @@ solve(A, u, b, solver_parameters=params)
 
 ### Incompressible Navier-Stokes benchmark (Chorin's method)
 
+.left-column[
+### Solver
+* GMRES for velocity
+* CG for pressure correction
+
+### Preconditioner
+* block-jacobi
+* ILU sub preconditioner
+]
+
+.right-column[
 ```python
 V = VectorFunctionSpace(mesh, "Lagrange", 2)
 Q = FunctionSpace(mesh, "Lagrange", 1)
@@ -408,6 +419,7 @@ L2 = -(1/k)*div(u1)*q*dx
 a3 = inner(u, v)*dx
 L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
 ```
+]
 
 ---
 
