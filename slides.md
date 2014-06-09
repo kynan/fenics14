@@ -4,10 +4,8 @@ class: center, middle, inverse
 
 ## **Florian Rathgeber**<sup>1</sup>, Lawrence Mitchell<sup>1</sup>, David Ham<sup>1,2</sup>, Michael Lange<sup>3</sup>, Andrew McRae<sup>2</sup>, Fabio Luporini<sup>1</sup>, Gheorghe-teodor Bercea<sup>1</sup>, Paul Kelly<sup>1</sup>
 
-Slides: http://kynan.github.io/fenics14
-
 .footnote[<sup>1</sup> Department of Computing, Imperial College London
-<sup>2</sup> Department of Mathematics, Imperial College London]
+<sup>2</sup> Department of Mathematics, Imperial College London  
 <sup>3</sup> Department of Earth Science & Engineering, Imperial College London]
 
 ---
