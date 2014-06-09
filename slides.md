@@ -304,12 +304,13 @@ solve(A, p, b, bcs=bcs)
 ## Benchmarks
 
 ### Hardware
-* Intel Xeon E5-2620 0 @ 2.00GHz (Sandy Bridge)
+* Intel Xeon E5-2620 @ 2.00GHz (Sandy Bridge)
 * 16GB RAM
 
 ### Compilers
 * Intel Compilers 14.0.1
 * Intel MPI 3.1.038
+* Compiler flags: -O3 -xAVX
 
 ### Software
 * DOLFIN 389e0269 (April 4 2014)
@@ -317,8 +318,8 @@ solve(A, p, b, bcs=bcs)
 * PyOP2 e775c5e (May 9 2014)
 
 ### Problem setup
-* DOLFIN: quadrature with optimisations
-* Firedrake: quadrature with COFFEE optimisations
+* DOLFIN: quadrature with optimisations enabled
+* Firedrake: quadrature with COFFEE loop-invariant code motion enabled
 
 ???
 
