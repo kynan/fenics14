@@ -364,21 +364,21 @@ solve(A, u, b, solver_parameters=params)
 
 ---
 
-### Poisson on a single core
-
 ![Poisson single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/Poisson_loglog_dim3_degree3_np1.svg)
 
----
+### solid: Firedrake, dashed: DOLFIN
 
-### Poisson scaling up to 12 cores (250k element mesh)
+---
 
 ![Poisson scaling](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_loglog_dim3_degree3_size35.svg)
 
+### solid: Firedrake, dashed: DOLFIN
+
 ---
 
-### Poisson speedup up to 12 cores (250k element mesh)
-
 ![Poisson speedup](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_plot_dim3_degree3_size35_speedup.svg)
+
+### solid: Firedrake, dashed: DOLFIN
 
 ---
 
@@ -432,21 +432,21 @@ L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
 
 ---
 
-### Navier-Stokes on a single core
-
 ![Navier-Stokes single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokes_loglog_np1.svg)
 
----
+### solid: Firedrake, dashed: DOLFIN
 
-### Navier-Stokes scaling up to 12 cores (500k element mesh)
+---
 
 ![Navier-Stokes scaling](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_loglog_scale0.2.svg)
 
+### solid: Firedrake, dashed: DOLFIN
+
 ---
 
-### Navier-Stokes speedup up to 12 cores (500k element mesh)
-
 ![Navier-Stokes speedup](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_plot_scale0.2_speedup.svg)
+
+### solid: Firedrake, dashed: DOLFIN
 
 ---
 
