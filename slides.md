@@ -68,6 +68,8 @@ over an unstructured mesh in parallel.
 
 ???
 
+This diagram shows an overview of the Firedrake / PyOP2 toolchain:
+
 * Decoupling of Firedrake (FEM) and PyOP2 (parallelisation) layers
 * (mostly) DOLFIN compatible API
 * UFL to describe finite-element discretisation
@@ -75,11 +77,17 @@ over an unstructured mesh in parallel.
 * Platform-specific runtime code generation and JIT compilation
 * Portability for unstructured mesh applications: FEM, non-FEM or combinations
 * Extensible framework beyond FEM computations (e.g. image processing)
+* Revisit this diagram later
 
 ---
 
 class: center, middle
 # Parallel computations on unstructured meshes with PyOP2
+
+???
+
+Let's start at the bottom layer and look at parallel computations on
+unstructured meshes with PyOP2.
 
 ---
 
@@ -96,6 +104,17 @@ A domain-specific language embedded in Python for parallel computations on unstr
 ### Unstructured mesh
 .scale[![PyOP2 mesh](images/op2_mesh.svg)]
 ]
+
+???
+
+PyOP2 was born from the realisation that scientific computations on unstructured
+meshes often share the same structure: there is an independent local operation
+that needs to be performed for every entity of the mesh and can be described by
+a computational kernel. The final result is obtained from a reduction which
+aggregates contributions from these local operations.
+
+PyOP2 is a domain-specific language embedded in Python which implements this
+principle for parallel computations on unstructured meshes or graphs.
 
 --
 
@@ -121,11 +140,19 @@ A domain-specific language embedded in Python for parallel computations on unstr
 
 ???
 
-* Fix diagram
-* Set: abstract entity, only know how big it is
-* Map: lookup table
-* Dat: abstracted array, contains actual values on CPU or GPU
-* take home: PyOP2 objects are bare/simple objects, but give tools how to express FE objects
+PyOP2 uses a number of simple primitives to describe unstructured meshes and
+data defined on them:
+* Set: abstractly defines class of entities, only know how big it is
+* Map: defines connectivity between elements of sets, lookup table
+* Dat: abstracted array, defined on a Set, contains actual values, which can
+  live in  CPU or GPU memory
+* Kernels:
+  * define operations/computations to be performed independently for
+    every entity of a given Set.
+  * executed over the entire Set (or subset) in parallel (parallel loop)
+  * have certain access modes for data they access
+* take home: PyOP2 objects are bare/simple objects, but give powerful tools to
+  express FE objects/constructs
 
 ---
 
@@ -135,6 +162,13 @@ A domain-specific language embedded in Python for parallel computations on unstr
 
 ???
 
+PyOP2 architecture shown in this diagram:
+* provides an API to the user (which may be another program, e.g. Firedrake)
+* declare data types, exectute parallel loops (dynamic construct)
+* PyOP2 runtime schedules computation efficiently (colouring avoids data races)
+* code generated and JIT compiled at runtime for different backends
+* CPU JIT: shell out to compiler to compile generated kernel + marshalling code
+* use ctypes to load the compiled shared object
 * No OpenCL and CUDA results this time (focussing on FEM features)
 
 ---
