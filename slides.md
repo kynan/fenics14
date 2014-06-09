@@ -230,11 +230,11 @@ p = Function(V)
 
 ## Applying boundary conditions
 
-* Applied in a way that preserves symmetry of the operator
-* Zeroing of matrix rows/columns during assembly, requires BCs 
+* Always applied in a way that preserves symmetry of the operator
+* Zeroing of matrix rows/columns during assembly, requires boundary DOFs
 * Leverage PETSc to avoid costly zeroing of CSR columns
-  * on assembly, set row/column indices of boundary values to negative values
-  * instruct PETSc to drop contributions, leaving a 0 in the assembled matrix
+  * on assembly, set row/column indices of boundary DOFs to negative values
+  * instructs PETSc to drop contributions, leaving a 0 in assembled matrix
 
 --
 
@@ -248,10 +248,12 @@ solve(A, p, b, bcs=bcs)
 ```
 ]
 .right70[
+* How can we call assembly before knowing final BCs?
 * BCs may change between point of assembly and solve
-* assembly returns unassembled matrix with assembly "thunk" (intent to assemble), called with BCs when solving
+* assembly returns unassembled matrix with assembly "thunk" (recipe), called with BCs when solving
 * Assembly is cached
   * pre-assembly not required in most circumstances
+  * Matrices record BCs they have been assembled with, no need for reassembly
   * assembly cache has FIFO eviction strategy
 ]
 
