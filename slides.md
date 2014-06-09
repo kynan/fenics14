@@ -318,6 +318,7 @@ solve(A, p, b, bcs=bcs)
 * PyOP2 e775c5e (May 9 2014)
 
 ### Problem setup
+* DOLFIN + Firedrake: RCM mesh reordering enabled
 * DOLFIN: quadrature with optimisations enabled
 * Firedrake: quadrature with COFFEE loop-invariant code motion enabled
 
