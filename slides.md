@@ -331,6 +331,8 @@ solve(A, p, b, bcs=bcs)
 ## Poisson benchmark
 
 .left-column[
+preassembled system
+
 ### Solver
 CG
 ### Preconditioner
@@ -389,13 +391,15 @@ solve(A, u, b, solver_parameters=params)
 ### Incompressible Navier-Stokes benchmark (Chorin's method)
 
 .left-column[
+preassembled system
+
 ### Solver
-* GMRES for velocity
+* GMRES for tentative velocity + velocity correction
 * CG for pressure correction
 
 ### Preconditioner
-* block-jacobi
-* ILU sub preconditioner
+* block-Jacobi
+* ILU block preconditioner
 ]
 
 .right-column[
