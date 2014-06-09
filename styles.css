@@ -82,12 +82,7 @@ code.has-jax {
 }
 .inverse h1, .inverse h2 {
   color: #f3f3f3;
-}
-
-/* Slide-specific styling */
-#slide-inverse .footnote {
-  bottom: 12px;
-  left: 20px;
+  line-height: 1em;
 }
 
 /* Two-column layout */
