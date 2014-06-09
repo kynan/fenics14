@@ -317,6 +317,14 @@ solve(A, p, b, bcs=bcs)
 
 ## Poisson benchmark
 
+.left-column[
+### Solver
+CG
+### Preconditioner
+Hypre Boomeramg
+]
+
+.right-column[
 ```python
 V = FunctionSpace(mesh, "Lagrange", degree)
 
@@ -327,7 +335,8 @@ bc = DirichletBC(V, 0.0, [3, 4])
 u = TrialFunction(V)
 v = TestFunction(V)
 f = Function(V).interpolate(Expression(
-        "10*exp(-(pow(x[0] - 0.5, 2) + pow(x[1] - 0.5, 2)) / 0.02)"))
+        "10*exp(-(pow(x[0] - 0.5, 2) + \
+        pow(x[1] - 0.5, 2)) / 0.02)"))
 g = Function(V).interpolate(Expression("sin(5*x[0])"))
 
 # Bilinear and linear forms
@@ -342,6 +351,7 @@ bc.apply(b)
 
 solve(A, u, b, solver_parameters=params)
 ```
+]
 
 ---
 
