@@ -8,6 +8,13 @@ class: center, middle, inverse
 <sup>2</sup> Department of Mathematics, Imperial College London  
 <sup>3</sup> Department of Earth Science & Engineering, Imperial College London]
 
+???
+
+Good morning! My name is Florian and it is my pleasure to introduce Firedrake, a
+re-imagination of the FEniCS concept by composing domain-specific abstraction.
+Firedrake is developed by a group at Imperial, some which are in the room, so
+I'll be presenting work of a number of people.
+
 ---
 
 .scale[![FEniCS](http://fenicsproject.org/_static/fenics_banner.png)]
@@ -16,6 +23,11 @@ class: center, middle, inverse
 > solution of differential equations.
 >
 > .source[&mdash; fenicsproject.org]
+
+???
+
+When I say "re-imagining FEniCS", let's recap how the FEniCS project defines
+itself on the website: ...
 
 ---
 
@@ -26,6 +38,12 @@ class: center, middle, inverse
 >
 > .source[&mdash; firedrakeproject.org]
 
+???
+
+Firedrake's mission statement is very similar: ...
+
+We'll get into more detail what makes Firedrake portable.
+
 --
 
 Two-layer abstraction for FEM computation from high-level descriptions:
@@ -33,6 +51,14 @@ Two-layer abstraction for FEM computation from high-level descriptions:
   *Drive FE computations from a high-level problem specification*
 * PyOP2: a high-level interface to unstructured mesh based methods  
   *Efficiently execute kernels over an unstructured grid in parallel*
+
+???
+
+The key concept is a layering of abstractions, with Firedrake as a portable
+finite-element computation framework on top, allowing to drive computations from
+a very high-level problem specification. The lower layer is PyOP2, a framework
+for unstructured mesh computations, whose role is to efficiently execute kernels
+over an unstructured mesh in parallel.
 
 ---
 
