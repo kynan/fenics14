@@ -284,24 +284,29 @@ familiar to any DOLFIN user modulo the import from Firedrake.
 
 ## Behind the scenes of the solve call
 
-* Unified interface: Firedrake always solves nonlinear problems in resdiual form `F(u;v) = 0` using Newton-like methods
-* Transform linear problem with bilinear form `a`, linear form `L` into residual form:
+* Firedrake always solves nonlinear problems in resdiual form `F(u;v) = 0`
+* Use Newton-like methods from PETSc SNES
+* Transform linear problem into residual form:
   ```python
   J = a
   F = ufl.action(J, u) - L
   ```
-  Jacobian known to be `a`; **always** solved in a single Newton (nonlinear) iteration
+  * Jacobian known to be `a`
+  * **Always** solved in a single Newton (nonlinear) iteration
 * PETSc SNES requires two callbacks to evaluate residual and Jacobian:
-  * evaluate residual: assemble residual form
+  * evaluate residual by assembling residual form
     ```python
     assemble(F, tensor=F_tensor)
     ```
-  * evaluate Jacobian: assemble Jacobian form
+  * evaluate Jacobian by assembling Jacobian form
     ```python
     assemble(J, tensor=J_tensor, bcs=bcs)
     ```
 
 ???
+
+* What happens when the final solve is called on the previous slide?
+* Unified solving interface even behind the scenes
 
 * If Jacobian not provided by the user, Firedrake uses automatic differentiation:
   ```python
