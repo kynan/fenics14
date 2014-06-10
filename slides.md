@@ -231,6 +231,16 @@ Defines abstract topology by sets of entities and maps between them (PyOP2 data 
 ![Firedrake types](images/firedrake_types.svg)
 ]
 
+???
+
+Firedrake uses same concepts as DOLFIN:
+* Functions defined on FunctionSpaces defined on a Mesh
+* Implemented i.t.o. PyOP2 data structures
+  * Function's data stored as PyOP2 Dat
+  * Dat defined on the DOFs DataSet of the FunctionSpace (defined on the nodes Set)
+  * Mesh holds sets of cells, exterior/interior facets
+  * FunctionSpace holds Maps from cells, exterior/interior facets to nodes
+
 ---
 
 ## Driving Finite-element Computations in Firedrake
