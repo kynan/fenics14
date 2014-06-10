@@ -272,6 +272,14 @@ p = Function(V)
 *solve(a == L, p)
 ```
 
+???
+
+Now that we've discussed the concepts, let's look at how to drive FE
+computations in Firedrake
+
+This slide shows the code for solving the Helmholtz equation and should be
+familiar to any DOLFIN user modulo the import from Firedrake.
+
 ---
 
 ## Behind the scenes of the solve call
