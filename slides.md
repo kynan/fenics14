@@ -323,11 +323,11 @@ name: bcs
 
 ## Applying boundary conditions
 
-* Always applied in a way that preserves symmetry of the operator
-* Zeroing of matrix rows/columns during assembly, requires boundary DOFs
-* Leverage PETSc to avoid costly zeroing of CSR columns
-  * on assembly, set row/column indices of boundary DOFs to negative values
-  * instructs PETSc to drop contributions, leaving a 0 in assembled matrix
+* Always preserve symmetry of the operator
+* Avoid costly search of CSR structure to zero rows/columns
+* Zeroing during assembly, but requires boundary DOFs:
+  * negative row/column indices for boundary DOFs during addto
+  * instructs PETSc to drop entry, leaving 0 in assembled matrix
 
 ???
 
