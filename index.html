@@ -12,9 +12,15 @@
       src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured">
     </script>
     <script type="text/javascript">
+      function getParameterByName(name, def) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? def : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
       var hljs = remark.highlighter.engine;
       var slideshow = remark.create({
-        sourceUrl: 'slides.md'
+        sourceUrl: getParameterByName('slides', 'slides.md')
         //highlightLanguage: 'Python' <- does not play nicely with MathJax
       });
       MathJax.Hub.Config({
