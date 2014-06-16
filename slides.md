@@ -499,19 +499,19 @@ solve(A, u, b, solver_parameters=params)
 
 ---
 
-![Poisson single core](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/Poisson_loglog_dim3_degree3_np1.svg)
+![Poisson single core](plots/Poisson_loglog_dim3_degree3_np1.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Poisson scaling](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_loglog_dim3_degree3_size35.svg)
+![Poisson scaling](plots/PoissonParallel_loglog_dim3_degree3_size35.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Poisson speedup](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/poisson/plots/PoissonParallel_plot_dim3_degree3_size35_speedup.svg)
+![Poisson speedup](plots/PoissonParallel_plot_dim3_degree3_size35_speedup.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
