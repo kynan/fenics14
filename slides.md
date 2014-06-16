@@ -183,7 +183,7 @@ How can Firedrake make use of that for FE computations?
 
 ---
 
-## Firedrake vs. DOLFIN tool chains
+## Firedrake vs. DOLFIN/FEniCS tool chains
 
 .scale[![Firedrake architecture](images/firedrake_toolchain_dolfin.svg)]
 
@@ -194,6 +194,7 @@ Version of the diagram that compares Firedrake and DOLFIN/FEniCS tool chains:
 * Key design decision:
   * Python as main language (c.f. language bar in the middle)
   * only lower to C for kernel execution
+  * we control C kernels completely, can use ctypes for lightweight interfacing
   * speed up performance-critical library code with Cython extension modules
     (mesh, sparsity building)
   * decompose and selectively lower high-level Firedrake constructs instead of
@@ -208,8 +209,6 @@ Version of the diagram that compares Firedrake and DOLFIN/FEniCS tool chains:
   * parallel loop interface is completely flexible
 * escape hatch for things not expressible in UFL: e.g. compute maximum of CG
   and DG functions for every CG DOF (slope limiters)
-* we control C kernels completely, can use ctypes for lightweight interfacing
-
 * PyOP2 as parallel execution layer for assembly kernels: responsible for
   storage, transfer and communication of data
 * PETSc used for meshes (DMPlex), nonlinear solves (SNES), linear solves (KSP, PC)
@@ -233,13 +232,13 @@ Defines abstract topology by sets of entities and maps between them (PyOP2 data 
 
 ???
 
-Firedrake uses same concepts as DOLFIN:
-* Functions defined on FunctionSpaces defined on a Mesh
-* Implemented i.t.o. PyOP2 data structures
-  * Function's data stored as PyOP2 Dat
-  * Dat defined on the DOFs DataSet of the FunctionSpace (defined on the nodes Set)
-  * Mesh holds sets of cells, exterior/interior facets
-  * FunctionSpace holds Maps from cells, exterior/interior facets to nodes
+Firedrake uses same concepts of Functions defined on FunctionSpaces defined on a
+Mesh as DOLFIN, however all of these are implemented in terms of the PyOP2 data
+structures I showed earlier:
+* Function's data stored as PyOP2 Dat
+* Dat defined on the DOFs DataSet of the FunctionSpace (defined on the nodes Set)
+* Mesh holds sets of cells, exterior/interior facets
+* FunctionSpace holds Maps from cells, exterior/interior facets to nodes
 
 ---
 
@@ -285,7 +284,6 @@ familiar to any DOLFIN user modulo the import from Firedrake.
 ## Behind the scenes of the solve call
 
 * Firedrake always solves nonlinear problems in resdiual form `F(u;v) = 0`
-* Use Newton-like methods from PETSc SNES
 * Transform linear problem into residual form:
   ```python
   J = a
@@ -293,6 +291,7 @@ familiar to any DOLFIN user modulo the import from Firedrake.
   ```
   * Jacobian known to be `a`
   * **Always** solved in a single Newton (nonlinear) iteration
+* Use Newton-like methods from PETSc SNES
 * PETSc SNES requires two callbacks to evaluate residual and Jacobian:
   * evaluate residual by assembling residual form
     ```python
@@ -609,19 +608,19 @@ L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
   * PyOP2: a high-level interface to unstructured mesh based methods  
     *Efficiently execute kernels over an unstructured grid in parallel*
 * Decoupling of Firedrake (FEM) and PyOP2 (parallelisation) layers
-* Platform-specific runtime code generation and JIT compilation
+* Firedrake concepts implemented with PyOP2/PETSc constructs
 * Portability for unstructured mesh applications: FEM, non-FEM or combinations
 * Extensible framework beyond FEM computations (e.g. image processing)
 
 --
 
 ### Preview: Firedrake features not covered
+* Automatic optimization of generated assembly kernels with COFFEE (Fabio's
+    talk)
+* Solving PDEs on extruded (semi-structured) meshes (Doru + Andrew's talk)
 * Building meshes using PETSc DMPlex
-* Communication-computation overlap when running MPI-parallel
 * Using fieldsplit preconditioners for mixed problems
-* Solving PDEs on extruded (semi-structured) meshes
 * Solving PDEs on immersed manifolds
-* Automatic optimization of generated assembly kernels with COFFEE
 * ...
 
 ---
