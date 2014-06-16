@@ -42,8 +42,6 @@ itself on the website: ...
 
 Firedrake's mission statement is very similar: ...
 
-We'll get into more detail what makes Firedrake portable.
-
 --
 
 Two-layer abstraction for FEM computation from high-level descriptions:
@@ -128,7 +126,7 @@ principle for parallel computations on unstructured meshes or graphs.
 ### Data
 * ``Dats`` – Defined on sets (hold pressure, temperature, etc)
 
-### Kernels
+### Kernels / parallel loops
 * Executed in parallel on a set through a parallel loop
 * Read / write / increment data accessed via maps
 
@@ -143,14 +141,21 @@ principle for parallel computations on unstructured meshes or graphs.
 PyOP2 uses a number of simple primitives to describe unstructured meshes and
 data defined on them:
 * Set: abstractly defines class of entities, only know how big it is
-* Map: defines connectivity between elements of sets, lookup table
+* Map: defines connectivity between elements of sets, lookup table (which
+    entities of the target Set associated with an entitity of the source Set)
 * Dat: abstracted array, defined on a Set, contains actual values, which can
   live in  CPU or GPU memory
-* Kernels:
+* Kernels / parallel loops:
   * define operations/computations to be performed independently for
     every entity of a given Set.
   * executed over the entire Set (or subset) in parallel (parallel loop)
+  * can access data associated via Maps with one level of indirection
   * have certain access modes for data they access
+* Linear algebra:
+  * Matrix defined on sparsity, which are defined by pairs of Maps
+  * Parallel loops can assemble matrices with local assembly operation defined
+    by kernel
+  * PyOP2 takes care of global assembly
 * take home: PyOP2 objects are bare/simple objects, but give powerful tools to
   express FE objects/constructs
 
@@ -193,10 +198,11 @@ Version of the diagram that compares Firedrake and DOLFIN/FEniCS tool chains:
 
 * Key design decision:
   * Python as main language (c.f. language bar in the middle)
+  * Cython to speed up performance-critical library code (mesh, sparsity
+      building) and interface to 3rd party libraries (PETSc via petsc4py)
   * only lower to C for kernel execution
   * we control C kernels completely, can use ctypes for lightweight interfacing
-  * speed up performance-critical library code with Cython extension modules
-    (mesh, sparsity building)
+  * DOLFIN: C++ library exposing a Python interface via SWIG (other way round)
   * decompose and selectively lower high-level Firedrake constructs instead of
     exposing functionality of C++ API to Python via SWIG
 * FFC not responsible for optimisation of code (role is only to produce an
@@ -235,10 +241,10 @@ Defines abstract topology by sets of entities and maps between them (PyOP2 data 
 Firedrake uses same concepts of Functions defined on FunctionSpaces defined on a
 Mesh as DOLFIN, however all of these are implemented in terms of the PyOP2 data
 structures I showed earlier:
-* Function's data stored as PyOP2 Dat
+* Function's data stored as PyOP2 Dat (Firedrake does not directly touch field
+    data!)
 * Dat defined on the DOFs DataSet of the FunctionSpace (defined on the nodes Set)
-* Mesh holds sets of cells, exterior/interior facets
-* FunctionSpace holds Maps from cells, exterior/interior facets to nodes
+* nodes Set related to Sets of cells, exterior/interior facets of the Mesh via Maps
 
 ---
 
