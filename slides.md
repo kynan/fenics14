@@ -569,37 +569,37 @@ L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
 
 ---
 
-![Navier-Stokes single core RHS](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokes_RHS_loglog_np1.svg)
+![Navier-Stokes single core RHS](plots/NavierStokes_RHS_loglog_np1.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Navier-Stokes single core solve](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokes_solve_loglog_np1.svg)
+![Navier-Stokes single core solve](plots/NavierStokes_solve_loglog_np1.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Navier-Stokes scaling RHS](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_RHS_loglog_scale0.2.svg)
+![Navier-Stokes scaling RHS](plots/NavierStokesParallel_RHS_loglog_scale0.2.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Navier-Stokes scaling solve](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_solve_loglog_scale0.2.svg)
+![Navier-Stokes scaling solve](plots/NavierStokesParallel_solve_loglog_scale0.2.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Navier-Stokes speedup RHS](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_RHS_plot_scale0.2_speedup.svg)
+![Navier-Stokes speedup RHS](plots/NavierStokesParallel_RHS_plot_scale0.2_speedup.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
 ---
 
-![Navier-Stokes speedup solve](http://wwwhomes.doc.ic.ac.uk/~fr710/firedrake-bench/navier_stokes/plots/NavierStokesParallel_solve_plot_scale0.2_speedup.svg)
+![Navier-Stokes speedup solve](plots/NavierStokesParallel_solve_plot_scale0.2_speedup.svg)
 
 ### solid: Firedrake, dashed: DOLFIN
 
