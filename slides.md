@@ -17,7 +17,7 @@ I'll be presenting work of a number of people.
 
 ---
 
-.scale[![FEniCS](https://fenicsproject.org/_static/fenics_banner.png)]
+.scale[![FEniCS](https://fenicsproject.org/pub/graphics/fenics_banner.png)]
 
 > The FEniCS Project is a collection of free software for automated, efficient
 > solution of differential equations.
