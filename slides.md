@@ -17,7 +17,7 @@ I'll be presenting work of a number of people.
 
 ---
 
-.scale[![FEniCS](http://fenicsproject.org/_static/fenics_banner.png)]
+.scale[![FEniCS](https://fenicsproject.org/_static/fenics_banner.png)]
 
 > The FEniCS Project is a collection of free software for automated, efficient
 > solution of differential equations.
@@ -31,7 +31,7 @@ itself on the website: ...
 
 ---
 
-.scale[![Firedrake](http://firedrakeproject.org/_static/banner.png)]
+.scale[![Firedrake](https://firedrakeproject.org/_static/banner.png)]
 
 > Firedrake is an automated system for the portable solution of partial
 > differential equations using the finite element method (FEM).
@@ -631,26 +631,24 @@ L3 = inner(u1, v)*dx - k*inner(grad(p1), v)*dx
 
 ---
 
-## Thank you!
-
-Contact: Florian Rathgeber, [@frathgeber](https://twitter.com/frathgeber), <f.rathgeber@imperial.ac.uk>
-
-### Resources
+## Resources
 
   * **PyOP2** https://github.com/OP2/PyOP2
-    * *[PyOP2: A High-Level Framework for Performance-Portable Simulations on Unstructured Meshes](http://dx.doi.org/10.1109/SC.Companion.2012.134)*
+    * *[PyOP2: A High-Level Framework for Performance-Portable Simulations on Unstructured Meshes](https://dx.doi.org/10.1109/SC.Companion.2012.134)*
       Florian Rathgeber, Graham R. Markall, Lawrence Mitchell, Nicholas Loriant, David A. Ham, Carlo Bertolli, Paul H.J. Kelly,
       WOLFHPC 2012
-    * *[Performance-Portable Finite Element Assembly Using PyOP2 and FEniCS](http://link.springer.com/chapter/10.1007/978-3-642-38750-0_21)*
+    * *[Performance-Portable Finite Element Assembly Using PyOP2 and FEniCS](https://link.springer.com/chapter/10.1007/978-3-642-38750-0_21)*
        Graham R. Markall, Florian Rathgeber, Lawrence Mitchell, Nicolas Loriant, Carlo Bertolli, David A. Ham, Paul H. J. Kelly ,
        ISC 2013
   * **Firedrake** https://github.com/firedrakeproject/firedrake
-    * *COFFEE: an Optimizing Compiler for Finite Element Local Assembly*
+    * *[Cross-Loop Optimization of Arithmetic Intensity for Finite Element Local Assembly](https://dx.doi.org/10.1145/2687415)*
       Fabio Luporini, Ana Lucia Varbanescu, Florian Rathgeber, Gheorghe-Teodor Bercea, J. Ramanujam, David A. Ham, Paul H. J. Kelly,
-      submitted
+      ACM Transactions on Architecture and Code Optimization, January 2015
   * **UFL** https://bitbucket.org/mapdes/ufl
   * **FFC** https://bitbucket.org/mapdes/ffc
 
 **This talk** is available at http://kynan.github.io/fenics14 ([source](https://github.com/kynan/fenics14))
+
+Contact: Florian Rathgeber, [@frathgeber](https://twitter.com/frathgeber)
 
 Slides created with [remark](http://remarkjs.com)
